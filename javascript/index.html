@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <body>
+        <script>
+            console.log("Welcome to JavaScript");
+            var age = 30;
+            age = 30;
+            var age = 40;
+            let username = "admin";
+            let password = "admin123";
+            if(username == "admin" && password == "admin123"){
+                console.log("Login Successful");
+            }else{
+                console.log("Login Failed");
+            }
+            console.log("Age :",age);
+
+            
+            
+            
+            let voter_age = 18;
+            let voter_id = "yes";
+            if(voter_age >= 18 && voter_id == "yes"){
+                console.log("You are eligible to vote");
+            }else{
+                console.log("You are not Eligible");
+            }
+
+
+            const pan = "SFEFREW3423";
+            console.log("PAN: ",pan);
+            function employee(name,company,clg="Sece"){
+                console.log(`My name is ${name} and I am working in ${company} and I have completed my graduation from ${clg}`);
+            }
+            employee("Hari","TCS");
+            employee("Vishnu","Nvidia");
+
+            let data=function(){
+                return "Hello javascript";
+            }
+            console.log(data());
+
+            let mult1=()=>{
+                return "Arrow Function";
+            }
+            console.log(mult1());
+            let mult=(a,b)=>{
+                return a*b;
+            }
+            console.log(mult(2,4));
+
+            function sece(callback){
+                console.log("Welcome to SECE");
+                callback();
+            }
+
+            function stud() {
+                console.log("I am a Student");
+            }
+
+            function whatsapp(callback) {
+                console.log("Whatsapp Notification");
+                callback();
+            }
+
+            function notification(){
+                console.log("You have a notification");
+            }
+
+            whatsapp(notification);
+            sece(stud);
+
+            let fetch_api = new Promise((resolve,reject)=>{
+                let api = true;
+                if(api){
+                    resolve("Food Order Successfull");
+                }
+                else{
+                    setTimeout(()=>{
+                        reject("Food Order Failed");
+                },2000)
+            }
+            })
+                console.log(fetch_api);
+                fetch_api.then(data => console.log(data))
+        </script>
+    </body>
+</html>
