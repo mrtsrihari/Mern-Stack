@@ -1,0 +1,68 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Deep Copy and Nested Loop</title>
+</head>
+<body>
+    <script>
+        let emp = [
+            {
+                emp_id: 101,
+                emp_name: "Srihari",
+                salary: 500000,
+                skills: ["cpp", "python", "java"]
+            },
+            {
+                emp_id: 102,
+                emp_name: "Rajesh",
+                salary: 500000,
+                skills: ["JavaScript", "React"]
+            },
+            {
+                emp_id: 103,
+                emp_name: "Hari",
+                company: {
+                    c1: "Tcs",
+                    c2: "Accenture"
+                }
+            }
+        ];
+
+        // Deep Copy
+        let copied_data = JSON.parse(JSON.stringify(emp));
+
+        // Modifying copied data
+        copied_data[2].company.c1 = "Google";
+        copied_data[0].salary = 80000;
+        copied_data[0].skills.push("React");
+
+        // Nested Loop
+        for (let i = 0; i < copied_data.length; i++) {
+
+            console.log("Employee", i + 1);
+
+            for (let key in copied_data[i]) {
+
+                let value = copied_data[i][key];
+
+                if (typeof value === "object" && value !== null) {
+
+                    for (let j in value) {
+                        console.log(key, j, ":", value[j]);
+                    }
+
+                } else {
+                    console.log(key, ":", value);
+                }
+            }
+
+            console.log("--------------------");
+        }
+
+        console.log("Original Data:", emp);
+        console.log("Copied Data:", copied_data);
+
+    </script>
+</body>
+</html>
